@@ -5,5 +5,5 @@ package countcalendar.sunis.com.mylibrary.net.request.type;
  */
 public enum NetRequestType {
 
-    GET, POST;
+    GET, POST,UPLOAD;
 }

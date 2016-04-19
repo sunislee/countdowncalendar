@@ -6,6 +6,7 @@ import android.support.v4.app.FragmentActivity;
 import countcalendar.sunis.com.mylibrary.net.request.manager.SyncRequestManager;
 import countcalendar.sunis.com.mylibrary.net.request.model.RequestModel;
 import countcalendar.sunis.com.mylibrary.net.request.model.RequestOptions;
+import countcalendar.sunis.com.mylibrary.net.request.type.NetRequestType;
 
 public class MainActivity extends FragmentActivity {
 
@@ -14,44 +15,39 @@ public class MainActivity extends FragmentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         MyRequestModel model = new MyRequestModel();
-        model.setName("MyName");
-        model.setRight(true);
-        model.setAge(30);
+        model.setAccount("stay4it");
+        model.setPassword("123456");
         RequestOptions requestOptions = new RequestOptions();
         requestOptions.setRequestModel(model);
+        requestOptions.setNetRequestType(NetRequestType.POST);
+//        requestOptions.setNetRequestType(NetRequestType.GET);
+        requestOptions.setRequestUrl("http://api.stay4it.com/v1/public/core/?service=user.login");
+//        requestOptions.setRequestUrl("http://imglf0.nosdn.127.net/img/ekpCUHpFWXBtVW5IcWViMzB4bzVGV0IzY0NnUGJUYmxVZk9RVVJYQVQweTFrUkpnK241SlF3PT0.jpg");
 
         SyncRequestManager manager = new SyncRequestManager(requestOptions,null);
+//        AsyncRequestManager manager = new AsyncRequestManager(requestOptions,null);
         manager.execute();
     }
 
     class MyRequestModel extends RequestModel {
 
-        private String name;
-        private boolean right;
-        private int age;
+        private String account;
+        private String password;
 
-        public String getName() {
-            return name;
+        public String getAccount() {
+            return account;
         }
 
-        public void setName(String name) {
-            this.name = name;
+        public void setAccount(String account) {
+            this.account = account;
         }
 
-        public boolean isRight() {
-            return right;
+        public String getPassword() {
+            return password;
         }
 
-        public void setRight(boolean right) {
-            this.right = right;
-        }
-
-        public int getAge() {
-            return age;
-        }
-
-        public void setAge(int age) {
-            this.age = age;
+        public void setPassword(String password) {
+            this.password = password;
         }
     }
 

@@ -17,6 +17,7 @@ public class RequestOptions {
     private RequestType requestType;
     private Map<String, String> headers;
 
+
     public RequestType getRequestType() {
         if (requestType == null) {
             requestType = RequestType.NET;
@@ -67,4 +68,6 @@ public class RequestOptions {
     public void setRequestModel(RequestModel requestModel) {
         this.requestModel = requestModel;
     }
+
+
 }
